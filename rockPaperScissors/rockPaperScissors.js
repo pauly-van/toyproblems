@@ -18,8 +18,19 @@
 *
 */
 
-var rockPaperScissors = function (
-) {
-  // TODO: your solution here
-};
+// Output: is a sequence of throws 
+// Input: is the number of throws
+// Constraits:
+// Edge cases:
 
+var rockPaperScissors = function (numOfRoundsNThrows) {
+  let gameRounds = [];
+  let throwOptions = ['R', 'P', 'S'];
+  for(let numOfRounds=0;numOfRounds<numOfRoundsNThrows;numOfRounds++){
+    for(let throws=0;throws<numOfRoundsNThrows;throws++){
+      randomThrow = Math.floor(Math.random() * (2 - 0 + 1) + 0);
+      gameRounds.push(randomThrow);
+    }
+  }
+  return gameRounds;
+};
