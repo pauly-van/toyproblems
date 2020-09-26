@@ -22,12 +22,19 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
+  let mySet = new Set();
+  for(let j = 0;j<this.length;j++){
+    mySet.add(this[j]);
+  }
+  let count = mySet.size;
+
   for(let i=0;i<arr.length;i++){
-    for(let n =0;n<this.length;n++){
-      if(arr[i]===this[n]){
-        return true;
-      }
+    if(mySet.has(arr[i])){
+      count--;
     }
+  }
+  if(count === 0){
+    return true;
   }
   return false;
 };
