@@ -21,7 +21,7 @@
 // Output: is a sequence of throws 
 // Input: is the number of throws
 // Constraits:
-// Edge cases:
+// Edge cases: 
 
 var rockPaperScissors = function (numOfRoundsNThrows) {
   let gameRounds = [];
