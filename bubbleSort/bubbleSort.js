@@ -58,3 +58,8 @@ assertBubbleSort(bubbleSort([2,3,1]), [1,2,3], 'Should sort array numerically')
 assertBubbleSort(bubbleSort([2,3,1,4,7,5,6]), [1,2,3,4,5,6,7], 'Should sort array numerically');
 assertBubbleSort(bubbleSort([2,1,3]), [1,2,3], 'Should sort array numerically');
 assertBubbleSort(bubbleSort([3,1,8,4,6,2,5,7]), [1,2,3,4,5,6,7,8], 'Should sort array numerically')
+
+
+/*
+Time complexity of this is O of n squared because in the worst case scenario we would have to traverse through the array n squared times
+*/

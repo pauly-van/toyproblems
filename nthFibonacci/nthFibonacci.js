@@ -25,10 +25,40 @@
  * 
  */
 
+/* iterative solution
+const nthFibonacci = function (n) {
+  let seq = [0,1];
+  for(let i =2;i<n;i++){
+    seq.push(seq[seq.length-1]+seq[seq.length-2]);
+  }
+  return seq[seq.length-1];
+};
 
-var nthFibonacci = function (n) {
-  // TODO: implement me!
+*/
+
+const nthFibonacci = function(n){
+  let seq = [0,1];
+  const recurse = function(array){
+    if(seq.length-1===n){
+      return 
+    }
+    seq.push(seq[seq.length-1]+seq[seq.length-2]);
+    recurse(seq);
+  }
+  recurse(seq);
+  return seq[seq.length-1];
 };
 
 
+const assertFibon = function(actual, expect, des){
+  if(actual===expect){
+    console.log('Passed:', actual);
+  }else{
+    console.log(`Failed [${des}]: Expected ${expect} but got ${actual}`);
+  }
+};
+
+
+assertFibon(nthFibonacci(4), 3, 'Should grab Fibonacci number of n');
+assertFibon(nthFibonacci(5), 5, 'Should grab Fibonacci number of n')
 
