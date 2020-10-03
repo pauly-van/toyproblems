@@ -34,5 +34,27 @@
 
 
 var bubbleSort = function(array) {
-  // Your code here.
+  for(let i=0;i<array.length;i++){
+    for(let n=i+1;n<array.length;n++){
+      let temp;
+      if(array[i]>array[n]){
+        temp=array[i];
+        array[i]=array[n];
+        array[n]=temp;
+      }
+    }
+  }
 };
+
+const assertBubbleSort = function(result, expect, descrip){
+  if(JSON.stringify(result)===JSON.stringify(expect)){
+    console.log('passed with: ', result);
+  }else{
+    console.log('Failed: ', descrip,`[expected ${result} to equal ${expect}]` );
+  }
+};
+
+assertBubbleSort(bubbleSort([2,3,1]), [1,2,3], 'Should sort array numerically')
+assertBubbleSort(bubbleSort([2,3,1,4,7,5,6]), [1,2,3,4,5,6,7], 'Should sort array numerically');
+assertBubbleSort(bubbleSort([2,1,3]), [1,2,3], 'Should sort array numerically');
+assertBubbleSort(bubbleSort([3,1,8,4,6,2,5,7]), [1,2,3,4,5,6,7,8], 'Should sort array numerically')

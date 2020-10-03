@@ -18,7 +18,13 @@
  * nthFibonacci(4); // => 3
  * etc...
  *
+ * O: The sum of numbers in N(how many numbers the program needs to go thru) 
+ * I: A number
+ * C: Have to be a positive number
+ * E: if is input 0 or 1 the return should be the input
+ * 
  */
+
 
 var nthFibonacci = function (n) {
   // TODO: implement me!
