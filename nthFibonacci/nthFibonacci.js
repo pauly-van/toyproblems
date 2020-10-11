@@ -49,7 +49,6 @@ const nthFibonacci = function(n){
   return seq[seq.length-1];
 };
 
-
 const assertFibon = function(actual, expect, des){
   if(actual===expect){
     console.log('Passed:', actual);
@@ -58,7 +57,5 @@ const assertFibon = function(actual, expect, des){
   }
 };
 
-
 assertFibon(nthFibonacci(4), 3, 'Should grab Fibonacci number of n');
 assertFibon(nthFibonacci(5), 5, 'Should grab Fibonacci number of n')
-
