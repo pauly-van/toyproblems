@@ -11,19 +11,11 @@
  */
 const commonCharacters = function(string1, string2) {
   let commonChars = new Set();
-  let long, short;
-  if(string1.length<=string2.length){
-    short=string1;
-    long=string2;
-  }else{
-    short=string2;
-    long=string1;
-  }
 
-  for(let i =0; i<long.length; i++){
-    for(let n = 0; n<short.length;n++){
-      if(long[i]===short[n]){
-        commonChars.add(long[i]);
+  for(let i =0; i<string1.length; i++){
+    for(let n = 0; n<string2.length;n++){
+      if(string1[i]===string2[n]){
+        commonChars.add(string1[i]);
       }
     }
   }
