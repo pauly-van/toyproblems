@@ -7,7 +7,6 @@
  * Extra credit: Make your function handle negative numbers.
  */
 
-
 const largestProductOfThree = function(array) {
   for(let i=0;i<array.length;i++){
     for(let j=i+1;n<array.length;j++){
