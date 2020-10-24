@@ -18,7 +18,7 @@ const largestProductOfThree = function(array) {
       }
     }
   }
-  return arr.reduce((acc, val)=>acc*val);
+  return arr.reduce((acc, val)=>acc*val,1);
 };
 
 const assertProduct = function(actual, expect, description){
