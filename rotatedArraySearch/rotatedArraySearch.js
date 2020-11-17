@@ -16,6 +16,24 @@
  */
 
 var rotatedArraySearch = function (rotated, target) {
-  // Your code here:
+  let rotatePoint = 0;
+  for(let i = 0; i< rotated.length;i++){
+    if(rotated[i] === target){
+      return i;
+    }
+    if(rotated[i]>rotated[i+1]){
+      rotatePoint = i;
+      break;
+    }
+  }
+  if(target<rotated[0]){
+    for(let i = rotatePoint; i < rotated.length; i++){
+      if(target===rotated[i]){
+        return i;
+      }
+    }
+  }
+  return null;
 };
 
+console.log(rotatedArraySearch([4,5,6,0,1,2,3],2))
