@@ -18,22 +18,27 @@
  */
 const outcomeOfABC = [ '' , 'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc' ];
 
-var powerSet = function(str) {
-    let result = [''];
-
-    const addToArray = function(pref, str){
-        if(str.length===0){
-            return [''];
-        }
-
-        for(let i=0;i<str.length;i++){
-            result.push(pref, str[i]);
-            addToArray(pref+str[i], str.slice(i+1));
-        }
+var powerSet = function(str, powerSt = new Set) {
+    let powerSt = new Set(); 
+    let char = str.split('').sort();
+    if(str.length===0){
+      powerSt.add(str);
+      return Array.from(powerSt);
+    }else if (powerSt.size === 0){
+        char.forEach(elem => powerSt.add(elem));
+        return powerSet(char.join('').slice(1), powerSt);
+    }else if(powerSt.size > 0){
+        powerSt.forEach(elem => {
+            char.forEach(el => {
+                if(!elem.includes(el)){
+                  let temp = elem + el;
+                  temp = temp.split('').sort().join('');
+                  powerSt.add(temp);
+                }
+            })
+        })
     }
-
-    addToArray('', str);
-    return result;
+  return powerSet(char.join('').slice(1), powerSt);
 };
 
 const assertEquals = function(actual, expect, desc){
