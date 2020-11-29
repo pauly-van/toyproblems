@@ -59,6 +59,7 @@ Range.prototype.each = function (callback) {
      this.reverse=true;
    }
    if(this.reverse){
+       step=-step;
        while(start>=end){
          callback((start-=step)+step);
        }
