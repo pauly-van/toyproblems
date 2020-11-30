@@ -26,5 +26,6 @@ var binarySearch = function (array, target) {
           start=mid+1;
       }   
     }
+    return null;
 };  
 

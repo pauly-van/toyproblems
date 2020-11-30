@@ -18,8 +18,7 @@
  */
 const outcomeOfABC = [ '' , 'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc' ];
 
-var powerSet = function(str, powerSt = new Set) {
-    let powerSt = new Set(); 
+var powerSet = function(str, powerSt = new Set()) {
     let char = str.split('').sort();
     if(str.length===0){
       powerSt.add(str);
