@@ -24,7 +24,12 @@ var deepEquals = function(apple, orange) {
     for(let key in obj1){
       if(typeof(obj1[key])!=='object' && obj1[key]!==obj2[key]){
         objsEqual = false;
+<<<<<<< HEAD
       }else if(typeof(apple[key])==='object'){
+=======
+        return;
+      }else if(typeof(apple[key]==='object')){
+>>>>>>> 89e9302f8368943db4f1fce9632fc869beff84a1
         searchDepth(apple[key], orange[key]);
       }
     }
