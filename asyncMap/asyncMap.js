@@ -39,4 +39,15 @@
 
 
 var asyncMap = function(tasks, callback) {
+  let orderTask = [];
+
+  tasks.forEach(task=>{
+    let promiseTask = new Promise(task);
+    orderTask.push(promiseTask);
+  })
+
+  Promise.all(orderTask)
+    .then(data =>{
+      callback(data);
+    })
 };
