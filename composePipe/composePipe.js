@@ -33,7 +33,13 @@
 
 'use strict';
 
-var compose = function() {
+var compose = function(...func) {
+  return (input)=>{
+    for(let i = func.length-1;i>=0;i--){
+      input = func[i](input);
+    }
+    return input;
+  }
 };
 
 var pipe = function() {
