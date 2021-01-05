@@ -42,5 +42,11 @@ var compose = function(...func) {
   }
 };
 
-var pipe = function() {
+var pipe = function(...func) {
+  return (input)=>{
+    for(let i = 0; i<=func.length;i++){
+      input = func[i](input);
+    }
+    return input;
+  }
 };
