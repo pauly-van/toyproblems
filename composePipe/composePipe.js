@@ -43,10 +43,18 @@ var compose = function(...func) {
 };
 
 var pipe = function(...func) {
+<<<<<<< HEAD
   return (input)=>{
     for(let i = 0; i<=func.length;i++){
       input = func[i](input);
     }
     return input;
+=======
+  return (input) => {
+    func.forEach(fn=>{
+      input = fn(input);
+      return input;
+    })
+>>>>>>> 8e44924cf6f7e2a5946502f85ddf9a829160410b
   }
 };
