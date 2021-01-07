@@ -24,6 +24,27 @@
  *
  */
 var balancedParens = function(input) {
+ let openBrac = 0; closeBrac = 0;
+ let keys = {
+   '{': '}',
+   '[': ']',
+   '(': ')'
+ }
+ for(let i=0;i<input.length;i++){
+  for(let key in keys){
+    if(input[i]===keys[key]&&openBrac<closeBrac){
+      return false;
+    }else if(input[i]===key){
+      openBrac++;
+    }else if(input[i]===keys[key]){
+      closeBrac++;
+    }
+  } 
+ }
+ if(openBrac===closeBrac){
+  return true;
+ }
+ return false;
 };
 
 
