@@ -43,10 +43,10 @@ var compose = function(...func) {
 };
 
 var pipe = function(...func) {
-  return (input) => {
-    func.forEach(fn=>{
-      input = fn(input);
-      return input;
-    })
+  return (input)=>{
+    for(let i = 0; i<=func.length;i++){
+      input = func[i](input);
+    }
+    return input;
   }
 };
