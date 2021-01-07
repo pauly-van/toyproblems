@@ -23,28 +23,55 @@
  *
  *
  */
+
+
 var balancedParens = function(input) {
- let openBrac = 0; closeBrac = 0;
- let keys = {
-   '{': '}',
-   '[': ']',
-   '(': ')'
- }
- for(let i=0;i<input.length;i++){
-  for(let key in keys){
-    if(input[i]===keys[key]&&openBrac<closeBrac){
-      return false;
-    }else if(input[i]===key){
-      openBrac++;
-    }else if(input[i]===keys[key]){
-      closeBrac++;
+    let balanced = true, closed = false;
+    let keys = {
+      '{': '}',
+      '[': ']',
+      '(': ')'
     }
-  } 
- }
- if(openBrac===closeBrac){
-  return true;
- }
- return false;
-};
-
-
+     var reverseScan = function(endingIndex, bracket){
+       let closingFound = false;
+       let newInput = input.slice(endingIndex);
+       let openingB = Object.keys(keys).filter(b=>b===bracket);
+       for(let i = newInput.length-1;i>0;i--){
+         let closing = openingB[0];
+         if(newInput[i]===keys[closing]){
+           return true;
+         }else if(newInput[i]!==keys[closing]){
+           for(let k in keys){
+             if(newInput[i]===keys[k]){
+               closingFound = true
+             }
+           }
+         }
+       }
+       if(!closingFound){
+         return false;
+       }
+     };
+   
+    for(let i=0;i<input.length;i++){
+     for(let key in keys){
+     }
+       if(input[i]===keys[key]){
+         closed = false;
+       }else if(input[i]===key){
+         let bal = reverseScan(i, key);
+         bal === true ? balanced=true: balanced=false;
+         bal === true ? closed=true: closed= false;
+       }
+     } 
+    }
+    if(!balanced && !closed){
+      return false;
+    }
+    return true;
+   };
+   
+   console.log(balancedParens('('));  // false
+   console.log(balancedParens('()')); // true
+   console.log(balancedParens(')('));  // false
+   console.log(balancedParens('(())'));  // t
