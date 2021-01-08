@@ -24,51 +24,45 @@
  *
  */
 
-
 var balancedParens = function(input) {
-    let balanced = true, closed = false;
-    let keys = {
-      '{': '}',
-      '[': ']',
-      '(': ')'
+  isBalanced = false;
+  backIndex = input.length;
+  openingBs = ['[', '{', '('];
+  closingBs = [']', '}', ')'];
+
+  if(input.length<=1){return false;}
+
+  var reverseScan = function(startingIndex, endingIndex, closingBracket){
+    for(let i = endingIndex;i>startingIndex;i--){
+      if(input[i]===closingBracket){
+        return i;
+      }
+      for(let j = 0; j<openingBs.length;j++){
+        if(openingBs[j]===input[i] || closingBs[j]===input[i]){
+          return false;
+        }
+      }
     }
-     var reverseScan = function(endingIndex, bracket){
-       let closingFound = false;
-       let newInput = input.slice(endingIndex);
-       let openingB = Object.keys(keys).filter(b=>b===bracket);
-       for(let i = newInput.length-1;i>0;i--){
-         let closing = openingB[0];
-         if(newInput[i]===keys[closing]){
-           return true;
-         }else if(newInput[i]!==keys[closing]){
-           for(let k in keys){
-             if(newInput[i]===keys[k]){
-               closingFound = true
-             }
-           }
-         }
-       }
-       if(!closingFound){
-         return false;
-       }
-     };
-   
-    for(let i=0;i<input.length;i++){
-     for(let key in keys){
-       if(!balanced && !closed){
-         return false;
-       }
-       if(input[i]===keys[key]){
-         closed = false;
-       }else if(input[i]===key){
-         let bal = reverseScan(i, key);
-         bal === true ? balanced=true: balanced=false;
-         bal === true ? closed=true: closed= false;
-       }
-     } 
+  };
+
+  for(let i = 0;i<input.length;i++){
+    // need to break after getting to last index
+    for(let n = 0;n<openingBs.length;n++){
+      if(input[i]===openingBs[n]){
+        let closedIndex = reverseScan(i, backIndex, closingBs[n]);
+        if(typeof(closedIndex)==='number'){
+          isBalanced = true;
+          backIndex=closedIndex;
+          continue;
+        }else{
+          return false;
+        }
+      }else if(input[i]===closingBs[n]){
+        return false;
+      }
     }
-    return true;
-   };
+  }
+};
    
    console.log(balancedParens('('));  // false
    console.log(balancedParens('()')); // true
