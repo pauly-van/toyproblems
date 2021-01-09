@@ -55,13 +55,7 @@ var balancedParens = function(input) {
    
     for(let i=0;i<input.length;i++){
      for(let key in keys){
-<<<<<<< HEAD
      }
-=======
-       if(!balanced && !closed){
-         return false;
-       }
->>>>>>> c69bd60e7b23982ac8e917aa12a0217912b36eb8
        if(input[i]===keys[key]){
          closed = false;
        }else if(input[i]===key){
@@ -70,15 +64,11 @@ var balancedParens = function(input) {
          bal === true ? closed=true: closed= false;
        }
      } 
-    }
-<<<<<<< HEAD
     if(!balanced && !closed){
       return false;
     }
-=======
->>>>>>> c69bd60e7b23982ac8e917aa12a0217912b36eb8
     return true;
-   };
+};
    
    console.log(balancedParens('('));  // false
    console.log(balancedParens('()')); // true
