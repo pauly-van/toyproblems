@@ -43,7 +43,7 @@ var balancedParens = function(input) {
         }
       }
     }
-  };
+ };
 
   for(let i = 0;i<input.length;i++){
     // need to break after getting to last index
