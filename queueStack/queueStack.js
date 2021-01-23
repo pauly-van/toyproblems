@@ -8,18 +8,34 @@
   * Stack Class
   */
 var Stack = function() {
+  let instance = {};
+  let counter = 0;
+  let storage ={};
 
   // add an item to the top of the stack
-  this.push = function() {
+  this.push = function(val) {
+    storage[counter]=val;
+    counter++;
   };
 
   // remove an item from the top of the stack
   this.pop = function() {
+    if(counter===0){ return undefined; }
+    let keys = Object.keys(storage);
+    let lastElem = keys[keys.length-1];
+    let poppedElem = storage[lastElem];
+    delete storage[lastElem];
+    counter--;
+    return poppedElem;
   };
 
   // return the number of items in the stack
   this.size = function() {
+    let keys = Object.keys(storage);
+    return keys.length;
   };
+
+  return instance;
 };
 
 /**
